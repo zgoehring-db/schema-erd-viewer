@@ -10,7 +10,7 @@ A Databricks App that visualizes Unity Catalog schemas as interactive Entity-Rel
 - **Column-level relationship arrows** — FK arrows connect directly to the specific source/target columns, not just the table
 - **Hover highlighting** — hover over any relationship to highlight it and dim all others, making it easy to trace connections in complex schemas
 - **Type differentiation** — tables (blue), views (green), and materialized views (purple) are visually distinct
-- **Unity Catalog tags** — any tags set on tables (e.g. `update_frequency`) are displayed in the node header. Set tags with `ALTER TABLE ... SET TAGS ('update_frequency' = 'daily')`
+- **Unity Catalog tags** — the `update_frequency` tag is displayed in the node header when set (e.g. `ALTER TABLE ... SET TAGS ('update_frequency' = 'daily')`)
 - **Auto-layout** — Dagre graph layout engine automatically positions nodes to minimize overlap, with connected tables laid out as a graph and disconnected objects arranged in a grid
 - **Scales to complex schemas** — minimap navigation, pan/zoom (down to 5% zoom), fit-to-view, and horizontal/vertical layout toggle
 - **Dual-mode auth** — works locally with Databricks CLI profiles and in Databricks Apps with auto-injected service principal credentials
@@ -199,14 +199,13 @@ The frontend dev server runs at http://localhost:5173 and proxies API requests t
 
 ## Adding Tags
 
-Use Unity Catalog tags to annotate tables with metadata that appears in the ERD:
+The app displays the `update_frequency` Unity Catalog tag on table nodes when set. To add it:
 
 ```sql
 ALTER TABLE my_catalog.my_schema.my_table SET TAGS ('update_frequency' = 'daily');
-ALTER TABLE my_catalog.my_schema.my_table SET TAGS ('owner' = 'data-team');
 ```
 
-Tags are displayed in a bar below the table header in each ERD node. The `update_frequency` tag gets a refresh icon; all other tags use a generic tag icon.
+The tag appears in a bar below the table header with a refresh icon. Other tags are ignored.
 
 ## Troubleshooting
 
