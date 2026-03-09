@@ -2,6 +2,8 @@
 
 A Databricks App that visualizes Unity Catalog schemas as interactive Entity-Relationship Diagrams (ERDs). Select any catalog and schema to see tables, views, materialized views, columns, primary keys, foreign keys, and relationships rendered as a navigable graph.
 
+![Schema ERD Viewer](app_picture.png)
+
 ## Features
 
 - **Full ERD visualization** — tables rendered as nodes with columns, data types, nullability, PK/FK indicators, and relationship arrows
