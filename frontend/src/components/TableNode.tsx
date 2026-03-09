@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { Handle, Position } from '@xyflow/react';
-import { Key, Link, RefreshCw, Tag } from 'lucide-react';
+import { Key, Link, RefreshCw } from 'lucide-react';
 import type { Column } from '../types';
 
 interface TableNodeData {
@@ -34,7 +34,7 @@ const TAG_ICONS: Record<string, typeof RefreshCw> = {
 function TableNode({ data }: { data: TableNodeData }) {
   const style = getHeaderStyle(data.tableType);
   const tags = data.tags || {};
-  const tagEntries = Object.entries(tags);
+  const tagEntries = Object.entries(tags).filter(([key]) => key === 'update_frequency');
 
   return (
     <div className={`bg-white rounded-lg shadow-lg border ${style.border} min-w-[260px] overflow-hidden`}>
@@ -50,7 +50,7 @@ function TableNode({ data }: { data: TableNodeData }) {
       {tagEntries.length > 0 && (
         <div className="bg-gray-50 border-b border-gray-200 px-3 py-1 flex flex-wrap gap-1.5">
           {tagEntries.map(([key, value]) => {
-            const Icon = TAG_ICONS[key] || Tag;
+            const Icon = TAG_ICONS[key] || RefreshCw;
             return (
               <span
                 key={key}
