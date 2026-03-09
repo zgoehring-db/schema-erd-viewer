@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/types.ts","./src/components/erdcanvas.tsx","./src/components/schemaselector.tsx","./src/components/tablenode.tsx","./src/hooks/useschemadata.ts","./src/lib/layout.ts"],"version":"5.7.3"}
