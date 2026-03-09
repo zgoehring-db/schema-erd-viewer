@@ -60,10 +60,16 @@ git clone <repo-url>
 cd schema-erd-viewer
 ```
 
-> **Note:** A pre-built `frontend/dist/` is included so you can deploy immediately without Node.js. If you modify the frontend source, rebuild it with:
+> **About the frontend build:** The app has two parts — a Python backend (`server/`) and a JavaScript frontend (`frontend/src/`). The frontend needs to be compiled into static files (`frontend/dist/`) before it can be served. A pre-built `frontend/dist/` is already included in this repo, so **you can skip straight to step 2 and deploy as-is**.
+>
+> If you ever make changes to files in `frontend/src/`, you'll need to rebuild. This requires [Node.js](https://nodejs.org/) v18+ (a one-time install), then run:
 > ```bash
-> cd frontend && npm install && npm run build && cd ..
+> cd frontend
+> npm install    # downloads frontend dependencies (first time only)
+> npm run build  # compiles src/ into dist/
+> cd ..
 > ```
+> After rebuilding, re-sync and re-deploy (steps 6–7) to see your changes.
 
 ### 2. Authenticate with your Databricks workspace
 
