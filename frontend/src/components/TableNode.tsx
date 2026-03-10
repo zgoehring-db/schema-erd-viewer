@@ -22,8 +22,8 @@ function getHeaderStyle(tableType: string) {
 
 function getDisplayType(tableType: string) {
   const t = tableType.toUpperCase();
-  if (t === 'MANAGED' || t === 'EXTERNAL') return 'TABLE';
-  if (t === 'MATERIALIZED_VIEW') return 'MAT VIEW';
+  if (t === 'MANAGED') return 'MANAGED';
+  if (t === 'EXTERNAL') return 'EXTERNAL';
   return t;
 }
 

@@ -1,15 +1,14 @@
 # Schema ERD Viewer
 
-A Databricks App that visualizes Unity Catalog schemas as interactive Entity-Relationship Diagrams (ERDs). Select any catalog and schema to see tables, views, materialized views, columns, primary keys, foreign keys, and relationships rendered as a navigable graph.
+A Databricks App that visualizes Unity Catalog schemas as interactive Entity-Relationship Diagrams (ERDs). Select any catalog and schema to see tables, columns, primary keys, foreign keys, and relationships rendered as a navigable graph.
 
 ![Schema ERD Viewer](app_picture.png)
 
 ## Features
 
-- **Full ERD visualization** — tables rendered as nodes with columns, data types, nullability, PK/FK indicators, and relationship arrows
+- **Full ERD visualization** — tables rendered as nodes with columns, data types, nullability, PK/FK indicators, managed/external badge, and relationship arrows
 - **Column-level relationship arrows** — FK arrows connect directly to the specific source/target columns, not just the table
 - **Hover highlighting** — hover over any relationship to highlight it and dim all others, making it easy to trace connections in complex schemas
-- **Type differentiation** — tables (blue), views (green), and materialized views (purple) are visually distinct
 - **Unity Catalog tags** — the `update_frequency` tag is displayed in the node header when set (e.g. `ALTER TABLE ... SET TAGS ('update_frequency' = 'daily')`)
 - **Auto-layout** — Dagre graph layout engine automatically positions nodes to minimize overlap, with connected tables laid out as a graph and disconnected objects arranged in a grid
 - **Scales to complex schemas** — minimap navigation, pan/zoom (down to 5% zoom), fit-to-view, and horizontal/vertical layout toggle

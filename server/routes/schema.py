@@ -76,6 +76,9 @@ def get_erd_data(catalog: str, schema: str):
     SELECT table_name, table_type
     FROM {catalog}.information_schema.tables
     WHERE table_schema = '{schema}'
+      AND table_type NOT IN ('VIEW', 'MATERIALIZED_VIEW')
+      AND table_name NOT LIKE '__materialization_%'
+      AND table_name NOT LIKE 'event_log_%'
     ORDER BY table_name
     """
     tables = _execute_sql(catalog, schema, tables_sql)
